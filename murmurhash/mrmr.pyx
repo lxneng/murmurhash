@@ -48,3 +48,7 @@ cpdef int32_t hash_unicode(unicode value, uint32_t seed=0):
 cpdef int32_t hash_bytes(bytes value, uint32_t seed=0):
     cdef char* chars = <char*>value
     return hash32(chars, len(value), seed)
+
+cpdef int64_t hash64_py(bytes value, uint64_t seed=0):
+    cdef char* chars = <char*>value
+    return hash64(chars, len(value), seed)

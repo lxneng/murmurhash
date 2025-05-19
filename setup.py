@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 from __future__ import print_function
 
+import contextlib
 import os
 import sys
-import contextlib
+from sysconfig import get_path
 
+from Cython.Build import cythonize
 from setuptools import Extension, setup
 from setuptools.command.build_ext import build_ext
-from sysconfig import get_path
-from Cython.Build import cythonize
-
 
 PACKAGES = ["murmurhash", "murmurhash.tests"]
 
@@ -101,7 +100,7 @@ def setup_package():
             )
 
         setup(
-            name="murmurhash",
+            name="murmurhash-lxneng",
             zip_safe=False,
             packages=PACKAGES,
             package_data={"": ["*.pyx", "*.pxd", "include/murmurhash/*.h"]},
